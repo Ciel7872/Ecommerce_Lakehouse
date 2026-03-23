@@ -1,6 +1,8 @@
 # 🛒 E-Commerce Lakehouse con Arquitectura Capa/Medallón
 
-Este proyecto es una implementación completa de un Data Lakehouse diseñado para procesar y analizar datos de un e-commerce. A través de una arquitectura en capas (Bronze, Silver, Gold), el proyecto simula un entorno real de ingeniería de datos, desde la extracción transaccional hasta la visualización final.
+Este proyecto es una implementación completa de un Data Lakehouse diseñado para procesar y analizar datos de un e-commerce. A través de una arquitectura en capas (Bronze, Silver, Gold), el proyecto simula un entorno real de ingeniería de datos, abarcando desde la extracción transaccional hasta la visualización final.
+
+Para lograrlo, se desarrolló un pipeline automatizado con PySpark bajo la arquitectura Medallón. Los datos se estructuran mediante archivos Parquet y se almacenan bajo el formato Delta simulando un entorno en S3, aprovechando su registro de transacciones para garantizar operaciones ACID y la integridad del Lakehouse. Toda la infraestructura está contenedorizada con Docker y la ejecución diaria de las tareas es orquestada mediante Apache Airflow.
 
 ## 📦 Sobre el Dataset (Olist)
 
