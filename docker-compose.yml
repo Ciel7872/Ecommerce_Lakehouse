@@ -1,0 +1,61 @@
+
+networks:
+  lakehouse_net:
+    driver: bridge
+
+services:
+  postgres_oltp:
+    image: postgres:15-alpine
+    container_name: postgres_oltp
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - lakehouse_net
+
+  pyspark_workspace:
+    image: jupyter/pyspark-notebook:latest
+    container_name: pyspark_workspace
+    ports:
+      - "${JUPYTER_PORT:-8888}:8888" 
+      - "4040:4040"                  
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+      PYSPARK_PYTHON: python3
+    volumes:
+      - ./:/home/jovyan/work         
+    networks:
+      - lakehouse_net
+    depends_on:
+      - postgres_oltp
+
+  # ---  AIRFLOW ---
+  airflow:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: airflow_standalone
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__DEFAULT_TIMEZONE=America/Argentina/Buenos_Aires
+    ports:
+      - "8080:8080"
+    volumes:
+      # Sincronizamos todo tu código fuente
+      - ./:/opt/airflow/project  
+      # Airflow buscará sus instrucciones exclusivamente en esta carpeta
+      - ./dags:/opt/airflow/dags 
+    networks:
+      - lakehouse_net
+    # El comando 'standalone' levanta la base de datos, el scheduler y el webserver de golpe
+    command: standalone
+    depends_on:
+      - postgres_oltp
+
+volumes:
+  postgres_data:

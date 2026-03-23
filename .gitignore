@@ -1,0 +1,31 @@
+# Credenciales y variables de entorno
+.env
+PARAEJECUTARLEER.txt
+run_bronze.ps1
+run_bronze.bat
+# Entornos virtuales
+venv/
+env/
+.venv/
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Spark y Delta Lake
+spark-warehouse/
+*.crc
+
+# Airflow (ignorar logs de ejecuciones locales si los mapeaste)
+logs/
+airflow-webserver.pid
+
+# Ignorar todo dentro de la carpeta data y sus subcarpetas
+data/**/*
+
+# EXCEPCIÓN: No ignorar los archivos .gitkeep (esto permite subir la estructura de carpetas)
+!data/**/.gitkeep
