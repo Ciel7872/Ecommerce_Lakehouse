@@ -66,7 +66,7 @@ El proyecto se encuentra en evolución constante. Las siguientes característica
 
 ------
 
-## 🚀 Cómo ejecutar el proyecto
+## ▶️▶️ Cómo ejecutar el proyecto
 
 Para levantar la infraestructura completa (Postgres, Spark, Airflow, etc.), colócate en la raíz del proyecto y utiliza Docker Compose:
 Una vez que los contenedores estén corriendo, el pipeline puede ser orquestado de forma automática mediante Apache Airflow (localhost:8080).
