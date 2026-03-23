@@ -23,7 +23,7 @@ El objetivo de este pipeline es transformar estos datos transaccionales crudos (
 
 ## 📊 Arquitectura y Flujo de Datos
 
-`![Arquitectura del Proyecto](iamges/arquitectura.png)`
+`![Arquitectura del Proyecto](images/arquitectura.png)`
 
 El pipeline se orquesta mediante Airflow, asegurando la ejecución secuencial y el monitoreo de las tareas.
 
