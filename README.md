@@ -26,7 +26,6 @@ El objetivo de este pipeline es transformar estos datos transaccionales crudos (
 ![Arquitectura del Proyecto](./images/arquitectura.png)
 El pipeline se orquesta mediante Airflow, asegurando la ejecución secuencial y el monitoreo de las tareas.
 
-*(Agrega aquí la captura de los cuadraditos verdes de Airflow)*
 ![DAGs en Airflow](ruta/a/tu/run_airflow.png)
 
 Los datos fluyen a través de las siguientes capas:
