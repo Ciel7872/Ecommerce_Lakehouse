@@ -23,23 +23,34 @@ El objetivo de este pipeline es transformar estos datos transaccionales crudos (
 
 ## 📊 Arquitectura y Flujo de Datos
 
-![Arquitectura del Proyecto](./images/arquitectura.png)
-El pipeline se orquesta mediante Airflow, asegurando la ejecución secuencial y el monitoreo de las tareas.
+<p align="center">
+  <img src="images/arquitectura.png" alt="Arquitectura del Proyecto" width="300">
+</p>
 
-![DAGs en Airflow](ruta/a/tu/run_airflow.png)
+# El pipeline se orquesta mediante Airflow, asegurando la ejecución secuencial y el monitoreo de las tareas.
+
+![DAGs en Airflow](images/run_airflow.png)
 
 Los datos fluyen a través de las siguientes capas:
 1.  **Bronze:** Ingesta de datos crudos desde PostgreSQL.
 2.  **Silver:** Limpieza, filtrado y estandarización de los datos.
 3.  **Gold:** Agregaciones y modelos de negocio listos para el consumo (Resumen diario de ventas).
 
-![Estructura Delta Lake](images/capas.png)
-![Estructura RAW](images/capa_raw.png)
+<p align="center">
+  <img src="images/capas.png" alt="Estructura Delta Lake" width="450">
+</p>
+
+**Raw:**
+<p align="center">
+ <img src="images/capa_raw.png" alt="Estructura RAW]" width="300">
+</p>
 
 ## Vizualizacion directa
 ![Grafico](images/prueba_basica.png)
-![Reporte Resumen](images/tabla_resumen.png)
 
+<p align="center">
+ <img src="images/tabla_resumen.png" alt="Reporte Resumen]" width="600">
+</p>
 
 ## 🚀 Próximos Pasos
 El proyecto se encuentra en evolución constante. Las siguientes características están planificadas para las próximas iteraciones:
